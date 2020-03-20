@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dingo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
+
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Raleway", Arial, Helvetica, sans-serif
+        }
+        
+        ion-icon {
+            color: rgb(37, 130, 158)
+        }
+        
+        body {
+            position: relative;
+        }
+        
+        ul.nav-pills {
+            top: 600px;
+            position: fixed;
+        }
+        
+        div.col-8 div {
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-dark bg-dark large">
+        <a href="#" class="nav-link"><img src="./dingog.jpg" height="50" width="50"> DinGo </a>
+        <a href="#restaurants" class="nav-link">
+            <ion-icon name="restaurant" class="margin-right" size="large"></ion-icon> Restaurants</a>
+        <a href="#about" class="nav-link">
+            <ion-icon name="glasses" class="margin-right" size="large"></ion-icon> About</a>
+        <a href="#contact" class="nav-link">
+            <ion-icon name="call" class="margin-right" size="large"></ion-icon> Contact</a>
+        <a href="#contact" class="nav-link">
+            <ion-icon name="book" class="margin-right" size="large"></ion-icon> Book Now</a>
+    </nav>
+    <br>
+    <header>
+        <main role="main" class="container">
+            <div class="jumbotron">
+                <h1>Welcome to Dingo</h1>
+                <p class="lead">Dear foodie, please pick your restaurant by moodie. Below you have a list of types of food you can search with. If you already have the restaurant of choice please click on the Book Now (top right corner). If you want to inform yourself
+                    about cuisines that restaurants can serve, click on the Restaurants button in the navigation bar.
+                </p>
+
+                <div class="container" style="width:600px; height: 300px; align-self: center;">
+                    <br /><br />
+                    <form method="post" id="framework_form">
+                        <div class="form-group">
+
+                            <select id="framework" name="framework[]" multiple class="form-control">
+                            <option value="Italian">Italian</option>
+                            <option value="Mexican">Mexican</option>
+                            <option value="Serbian">Serbian</option>
+                            <option value="Greek">Greek</option>
+                            <option value="Vegetarian">Vegetarian</option>
+                            <option value="Vegan">Vegan</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Indian">Indian</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="form-group" style="align-self: center;">
+                            <input type="submit" class="btn btn-info" name="submit" value="Search for me" />
+                        </div>
+                    </form>
+
+                </div>
+
+        </main>
+
+    </header>
+
+    <div class="container" style=" align-self: center;" id="restaurants">
+        <div class="jumbotron">
+            <div class="accordion" id="accordionExample">
+
+                <!-- Card -->
+
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Italian
+              </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Italian cuisine is food typical of Italy. Italian cuisine is generally characterized by its simplicity, with many dishes having only two to four main ingredients. Italian cooks rely chiefly on the quality of the ingredients rather than on elaborate preparation.
+                            Ingredients and dishes vary by region. Many dishes that were once regional have proliferated with variations throughout the country.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card -->
+
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Mexican
+              </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Mexican cuisine is a complex and ancient cuisine, with techniques and skills developed over thousands of years of history. It is created mostly with ingredients native to Mexico, as well as those brought over by the Spanish conquistadors, with some new
+                            influences since then. Mexican cuisine has been influenced by its proximity to the US-Mexican border. For example, burritos were thought to have been invented for easier transportation of beans by wrapping them in tortillas
+                            for field labor. Modifications like these brought Mexican cuisine to the United States
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card -->
+
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Serbian
+              </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Serbian cuisine is the traditional cuisine of Serbia, sharing characteristics with the rest of the Balkan nations (especially former Yugoslavia). Historically, Serbian food is characterized by influences of Byzantine–Greek, Mediterranean, but also by
+                            Turkish and cuisine of Central Europe. The national dishes include gibanica (egg and cheese pie made with filo dough), pljeskavica (a ground beef/pork patty), ćevapi (grilled ground meat), and Karađorđeva šnicla (Karađorđe's
+                            schnitzel). The national drink is the rakia . </div>
+                    </div>
+                </div>
+
+                <!-- Card -->
+
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Greek
+          </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Greek cookery makes wide use of vegetables, olive oil, grains, fish, wine (white and red), and meat (including pork, poultry, veal, lamb, rabbit and beef). Other important ingredients include olives, pasta (especially hilopites, a kind of pasta similar
+                            to tagliatelle), cheese, lemon juice, herbs, bread, and yogurt. The most commonly used grain is wheat; barley is also used. Common dessert ingredients include nuts, honey, fruits, and filo pastries. It has a history of thousands
+                            of years with dishes originating from Ancient Greece
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card -->
+
+                <div class="card">
+                    <div class="card-header" id="headingFive">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Vegetarian
+          </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Vegetarian cuisine is based on food that meets vegetarian standards by not including meat and animal tissue products.For lacto-ovo vegetarianism (the most common type of vegetarianism in the Western world), eggs and dairy products, such as milk and cheese
+                            without rennet are permitted.Traditional foods that have always been vegetarian include cereals, grains, fruits, vegetables, legumes and nuts. The strictest forms of vegetarianism are veganism and fruitarianism, which exclude
+                            all animal products, including dairy, honey, and some refined sugars if filtered and whitened with bone char.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card -->
+
+                <div class="card">
+                    <div class="card-header" id="headingSix">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            Vegan
+          </button>
+                        </h5>
+                    </div>
+                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Vegan cuisine uses no animal products, such as meat, dairy, or eggs. This is more restrictive than vegetarian cuisine, which allows non-meat animal products. All vegan recipes are therefore vegetarian, though not all vegetarian meals are vegan. Vegans
+                            should be attentive to their intake of vitamins B (especially B12) and D, calcium, iodine, and fatty acids.When preparing non-vegan recipes in accordance with a vegan diet, meat, eggs, honey, and dairy are replaced with a substitute
+                            ingredient. Substitute ingredients try to replicate the taste and texture of an ingredient or its other useful properties. Substituting for an ingredient works to greater or lesser degrees, depending upon the recipe, and some
+                            ingredients are almost impossible to replace.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card -->
+
+                <div class="card">
+                    <div class="card-header" id="headingSeven">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+            Chinese
+          </button>
+                        </h5>
+                    </div>
+                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Chinese cuisine is an important part of Chinese culture, which includes cuisine originating from the diverse regions of China, as well as from Overseas Chinese who have settled in other parts of the world. Because of the Chinese diaspora and historical
+                            power of the country, Chinese cuisine has influenced many other cuisines in Asia, with modifications made to cater to local palates. Chinese food staples such as rice, soy sauce, noodles, tea, and tofu, and utensils such as
+                            chopsticks and the wok, can now be found worldwide. Color, smell and taste are the three traditional aspects used to describe Chinese food, as well as the meaning, appearance and nutrition of the food. Cooking should be appraised
+                            with respect to the ingredients used, knifework, cooking time and seasoning.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card -->
+
+                <div class="card">
+                    <div class="card-header" id="headingEight">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+             Indian
+          </button>
+                        </h5>
+                    </div>
+                    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Indian cuisine consists of a wide variety of regional and traditional cuisines native to the Indian subcontinent. Given the range of diversity in soil type, climate, culture, ethnic groups, and occupations, these cuisines vary substantially from each
+                            other and use locally available spices, herbs, vegetables, and fruits. Indian food is also heavily influenced by religion, in particular Hinduism, cultural choices and traditions. Indian cuisine reflects an 8,000-year history
+                            of various groups and cultures interacting with the Indian subcontinent, leading to diversity of flavours and regional cuisines found in modern-day India. Later, trade with British and Portuguese influence added to the already
+                            diverse Indian cuisine.
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="about">
+
+        <div class="jumbotron">
+            <h1>We are Dingo</h1>
+            <p>--TODO--</p>
+            <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Find More about us</a>
+        </div>
+    </div>
+    <div class="container" id="contact">
+        <section class="mb-4">
+
+            <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+
+            <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within a matter of hours to help you.</p>
+
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-9 mb-md-0 mb-5">
+                    <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="name" name="name" class="form-control">
+                                    <label for="name" class="">Your name</label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="email" name="email" class="form-control">
+                                    <label for="email" class="">Your email</label>
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="md-form mb-0">
+                                    <input type="text" id="subject" name="subject" class="form-control">
+                                    <label for="subject" class="">Subject</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-12">
+
+                                <div class="md-form">
+                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                    <label for="message">Your message</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+                    </form>
+
+                    <div class="text-center text-md-left">
+                        <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
+                    </div>
+                    <div class="status"></div>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-3 text-center">
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <ion-icon name="call" size="large"></ion-icon>
+                            <p> 000 111 222 333</p>
+                        </li>
+
+                        <li>
+                            <ion-icon name="mail" size="large"></ion-icon>
+                            <p>foodie.modie@gmail.com</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+            </div>
+
+        </section>
+    </div>
+</body>
+
+</html>
+<script>
+    $(document).ready(function() {
+        $('#framework').multiselect({
+            nonSelectedText: 'Select by multiple choices',
+            enableFiltering: true,
+            enableCaseInsensitiveFiltering: true,
+            buttonWidth: '400px'
+
+        });
+
+    });
+</script>
