@@ -13,7 +13,7 @@ $(document).ready(function() {
                         min: 2,
                     },
                         notEmpty: {
-                        message: 'Molimo vas unesite vase ime'
+                        message: 'Molimo Vas unesite Vase ime'
                     }
                 }
             },
@@ -23,64 +23,45 @@ $(document).ready(function() {
                         min: 2,
                     },
                     notEmpty: {
-                        message: 'Molimo vas unesite vase prezime'
+                        message: 'Molimo Vas unesite Vase prezime'
                     }
                 }
             },
-			 user_name: {
+			 
+			user_password: {
                 validators: {
                      stringLength: {
-                        min: 8,
+                        min: 1,
                     },
                     notEmpty: {
-                        message: 'Molimo vas unesite vase korisnicko ime'
-                    }
-                }
-            },
-			 user_password: {
-                validators: {
-                     stringLength: {
-                        min: 8,
-                    },
-                    notEmpty: {
-                        message: 'Molimo vas unesite vasu lozinku'
-                    }
-                }
-            },
-			confirm_password: {
-                validators: {
-                     stringLength: {
-                        min: 8,
-                    },
-                    notEmpty: {
-                        message: 'Molimo vas potvrdite vasu lozinku'
+                        message: 'Molimo Vas izaberite broj mesta'
                     }
                 }
             },
             email: {
                 validators: {
                     notEmpty: {
-                        message: 'Molimo vas unesite vasu email adresu'
+                        message: 'Molimo Vas unesite Vasu email adresu'
                     },
                     emailAddress: {
-                        message: 'Molimo vas unesite validnu e-mail adresu'
+                        message: 'Molimo Vas unesite validnu e-mail adresu'
                     }
                 }
             },
             contact_no: {
                 validators: {
                   stringLength: {
-                        min: 12, 
+                        min: 0, 
                         max: 12,
                     notEmpty: {
-                        message: 'Molimo vas unesite vas kontakt telefon'
+                        message: 'Molimo Vas unesite Vas kontakt telefon'
                      }
                 }
             },
 			 department: {
                 validators: {
                     notEmpty: {
-                        message: 'Please select your Department/Office'
+                        message: 'Molimo Vas izaberite Vas resotran'
                     }
                 }
             },
