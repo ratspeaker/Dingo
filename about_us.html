@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>O nama</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Bootstrap social for stylized social media icons -->
+    <link rel="stylesheet" href="./social.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Raleway", Arial, Helvetica, sans-serif
+        }
+        
+        ion-icon {
+            color: rgb(37, 130, 158)
+        }
+        
+        body {
+            position: relative;
+            top: 5px;
+            background-image: url("food_background.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: 50% -10%;
+            background-size: cover;
+            
+        }
+        
+        ul.nav-pills {
+            top: 600px;
+            position: fixed;
+        }
+        
+        div.col-8 div {
+            height: 500px;
+        }
+        .student{
+            display: inline-block;
+            margin: 0px 0px;
+            padding: 10px;
+        }
+        
+        .front{
+            position: relative;
+            left: 0px;
+        }
+        
+        .back{
+            position: relative;
+            left: 180px;
+        }
+        
+        .intro{
+            color: white;
+            font-weight: 550;
+            padding: 40px 80px 0px 80px;
+            font-size: 16px;
+            font-family: fantasy;
+            
+        }
+        
+        .intro_div{
+            position: relative;
+            top:50px;
+            height: 430px;
+            opacity: 1;
+            text-align: justify;
+            padding: 0px 10px 30px 10px;
+            margin: 40px auto;
+            /*border: 1px outset gray;*/
+            background-color: rgba(10, 10, 30, 0.4);
+            width: 55%;
+            border-radius: 25px;
+        }
+        
+        #title_head{
+            position: relative;
+            text-align: center;
+            color: white;
+            margin: 240px auto;
+            padding: 35px;
+            /*border: 2px groove white;*/
+            border-radius: 25px;
+            height: 140px;
+            width: 50%;
+            background-color: rgba(10, 10, 30, 0.4);
+            
+        }
+        
+        #begintext{
+            font-family: "Comic Sans MS";
+            font-size: 50px;
+            font-weight: 500;
+        }
+        
+        #tim{
+            position: relative;
+            /*border: 10px solid red;*/
+            padding-top: 80px;
+            padding-left: 20px;
+        }
+        
+        #all{
+            position: relative;
+            /*border: 10px solid black;*/
+            top: 10px;
+            padding-bottom: 140px;
+            
+            
+        }
+        
+        .foot{
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+        }
+        
+        .navig{
+            /*background-color: whitesmoke;*/
+        }
+        
+        .navtxt{
+            color: white;
+            font-weight: bold;
+        }
+        
+        .slika:hover {
+            opacity: 0.8;
+        }
+           
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar fixed-top large navig nav-menu bg-dark text-white-50">
+        <a href="./projekat.html" class="nav-link navtxt"><img src="./logo.png" height="40" width="40"> DinGO </a>
+        <a href="projekat.html#restaurants" class="nav-link navtxt">
+            <ion-icon name="restaurant" class="margin-right" size="large"></ion-icon> Vrsta hrane</a>
+        <a href="./about_us.html" class="nav-link navtxt">
+            <ion-icon name="glasses" class="margin-right" size="large"></ion-icon> O nama</a>
+        <a href="projekat.html#contact" class="nav-link navtxt">
+            <ion-icon name="call" class="margin-right" size="large"></ion-icon> Kontakt </a>
+        <a href="./index.html" class="nav-link navtxt">
+            <ion-icon name="book" class="margin-right" size="large"></ion-icon> Rezerviši odmah</a>
+    </nav>
+    <br>
+    <header>
+        <main role="main" class="container">
+            <br> </br>
+            <div class="text-center" id="title_head">
+                <h1 id="begintext"> O nama </h1>
+            </div> 
+        </main>
+
+    </header>  
+    <div class="container_main">
+      <div class="intro_div ">
+            <p class="intro"> 
+                Mi smo tim studenata inspirisani raznolikostima mogućnosti koje nam se nameću svakodnevno u životu da iskusimo.
+                Tu smo da vama pomognemo da za što kraće vreme odaberete restoran preferiranih karakteristika i uživate u raznolikostima usluga koje se nude.
+                <br>
+                Veoma često nam je neophodna pomoć da se u što kraćem vremenskom roku snađemo u moru informacija o restoranima, kada zbog  brzine života današnjice nemamo vremena za istraživanja i upoređivanja restorana: vrste hrane koja se u restoranu služi, kvaliteta, najbližih lokacija, vrste muzike, mogućnosti uvođenja ljubimaca, dodatnih usluga itd.
+                <br><br>
+                Naš tim čine studenti smera Informatike Matematičkog fakulteta Univerziteta u Beogradu.
+                </p> 
+            
+        </div>
+        <br> <br>
+      </div>
+      
+<div id = "all">
+<div class="container" id="tim">
+  <div class="row">
+  
+  <div class="col-lg-4 col-sm-6 mb-4 student front">
+    <div class="card h-70 ">
+
+            <img class="card-img-top img-thumbnail img-fluid" src="./profile.png" alt="">
+
+            <div class="card-body">
+                <h4 class="card-title" style=" text-align: center;">
+                    Dara Milojković
+                </h4>
+                <p class="card-text">
+                    <i class="fab fa-dev"></i> Front-end web development
+                </p>
+                <i class="far fa-envelope"></i> dara@gmail.com
+                <br><br>
+                <div class='text-center'>
+                    
+                   <!-- <a target="_blank" href="https://github.com/">
+                        <i class='fa-lg fab fa-github'></i>
+                    </a>
+                    
+                    <a target="_blank" href="https://www.facebook.com/">
+                        <i class="fab fa-facebook"></i> 
+                    </a>-->
+                    
+                    <!--<a target="_blank" href="https://www.linkedin.com/">
+                        <i class='fa-lg fab fa-linkedin'></i>
+                    </a>-->
+                    
+                </div>
+                </div>
+            </div>
+    </div>
+    
+     <div class="col-lg-4 col-sm-6 mb-4 student front">
+    <div class="card h-70 ">
+
+            <img class="card-img-top img-thumbnail img-fluid" src="./profile.png" alt="">
+
+            <div class="card-body">
+                <h4 class="card-title" style=" text-align: center;">
+                    Darko Nešković
+                </h4>
+                <p class="card-text">
+                    <i class="fab fa-dev"></i> Back-end web development
+                </p>
+                <i class="far fa-envelope"></i> darko@gmail.com
+                <br><br>
+                <div class='text-center'>
+                    
+                   <!-- <a target="_blank" href="https://github.com/">
+                        <i class='fa-lg fab fa-github'></i>
+                    </a>
+                    
+                    <a target="_blank" href="https://www.facebook.com/">
+                        <i class="fab fa-facebook"></i> 
+                    </a>-->
+                    
+                    <!--<a target="_blank" href="https://www.linkedin.com/">
+                        <i class='fa-lg fab fa-linkedin'></i>
+                    </a>-->
+                    
+                </div>
+                </div>
+            </div>
+    </div>
+  
+    <div class="col-lg-4 col-sm-6 mb-4 student front">
+        <div class="card h-70 ">
+
+            <img class="card-img-top img-thumbnail img-fluid slika" src="./profile.png" alt="">
+
+            <div class="card-body">
+                <h4 class="card-title" style=" text-align: center;">
+                    Kristina Pantelić
+                </h4>
+                <p class="card-text">
+                    <i class="fab fa-dev"></i> Front-end web development
+                </p>
+                <i class="far fa-envelope"></i> kristinapantelic@gmail.com
+                <br><br>
+                <div class='text-center'>
+                    
+                    <a target="_blank" href="https://github.com/beskonacnost">
+                        <i class='fa-lg fab fa-github'></i>
+                    </a>
+                    
+                    <a target="_blank" href="https://www.facebook.com/VivaLaVida4">
+                        <i class="fab fa-facebook"></i> 
+                    </a>
+                    
+                    <!--<a target="_blank" href="https://www.linkedin.com/">
+                        <i class='fa-lg fab fa-linkedin'></i>
+                    </a>-->
+                    
+                </div>
+                </div>
+            </div>
+        </div>
+            
+    <div class="col-lg-4 col-sm-6 mb-4 student back">
+    <div class="card h-70 ">
+
+            <img class="card-img-top img-thumbnail img-fluid" src="./profile.png" alt="">
+
+            <div class="card-body">
+                <h4 class="card-title" style=" text-align: center;">
+                    Jelena Milivojević
+                </h4>
+                <p class="card-text">
+                    <i class="fab fa-dev"></i> Back-end web development
+                </p>
+                <i class="far fa-envelope"></i> jelena@gmail.com
+                <br><br>
+                <div class='text-center'>
+                    
+                   <!-- <a target="_blank" href="https://github.com/">
+                        <i class='fa-lg fab fa-github'></i>
+                    </a>
+                    
+                    <a target="_blank" href="https://www.facebook.com/">
+                        <i class="fab fa-facebook"></i> 
+                    </a>-->
+                    
+                    <!--<a target="_blank" href="https://www.linkedin.com/">
+                        <i class='fa-lg fab fa-linkedin'></i>
+                    </a>-->
+                    
+                </div>
+                </div>
+            </div>
+    </div>
+    
+    <div class="col-lg-4 col-sm-6 mb-4 student back">
+    <div class="card h-70 ">
+
+            <img class="card-img-top img-thumbnail img-fluid" src="./profile.png" alt="">
+
+            <div class="card-body">
+                <h4 class="card-title" style=" text-align: center;">
+                    Matija Pejić
+                </h4>
+                <p class="card-text">
+                    <i class="fab fa-dev"></i> Front-end web development
+                </p>
+                <i class="far fa-envelope"></i> matija@gmail.com
+                <br><br>
+                <div class='text-center'>
+                    
+                   <!-- <a target="_blank" href="https://github.com/">
+                        <i class='fa-lg fab fa-github'></i>
+                    </a>
+                    
+                    <a target="_blank" href="https://www.facebook.com/">
+                        <i class="fab fa-facebook"></i> 
+                    </a>-->
+                    
+                    <!--<a target="_blank" href="https://www.linkedin.com/">
+                        <i class='fa-lg fab fa-linkedin'></i>
+                    </a>-->
+                    
+                </div>
+                </div>
+            </div>
+    </div>
+ 
+</div>
+</div>
+
+<br> <br> 
+ <footer id="sticky-footer" class="py-4 bg-dark text-white-50 foot">
+    <img src="./logo.png" height="50" width="50" style="position: relative; left: 40px; top: -40px;">
+    <div id="foot_dingo" style="position:relative; left: 30px; bottom: -30px; display: inline-block;">
+        <h1> DinGO </h1>
+        <p> Napravi dobar izbor za kratko vreme. </p>
+    </div>
+    <div class="container text-center " >
+        <small>Copyright &copy; 2020 DinGO All rights reserved.</small>
+    </div>
+  </footer> 
+      
+</div>
+</body>
+    
+</html>
