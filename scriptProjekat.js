@@ -43,7 +43,10 @@
                          var row = document.createElement("tr");
 
                          var cell2 = document.createElement("td");
-                         cell2.innerHTML = '<a href="./index.html?name=' + received[r] + '" class="nav-link" target="blank"><ion-icon name="book" class="margin-right" size="large"></ion-icon> Rezerviši odmah ' + received[r] + '</a>';
+                         
+                         var UrlParameter = received[r].split(' ').join('-');
+                         
+                         cell2.innerHTML = '<a href="./index.html?name=' + UrlParameter + '" class="nav-link" target="blank"><ion-icon name="book" class="margin-right" size="large"></ion-icon> Rezerviši odmah ' + received[r] + '</a>';
 
                          row.appendChild(cell2);
 
