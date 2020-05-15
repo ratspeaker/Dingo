@@ -88,4 +88,9 @@ $(document).ready(function() {
             }, 'json');
            
         });
+        let def = window.location.href;
+        let separator = '='
+        $('#department option:first-child').text(
+            def.substr(def.lastIndexOf(separator)+1,def.length-def.lastIndexOf(separator)+1)
+            );
 });
