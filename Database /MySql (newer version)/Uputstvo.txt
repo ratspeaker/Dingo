@@ -1,0 +1,7 @@
+Dva nacina da se baza napravi. 
+
+1.1) Iz workbench-a ucitat DingoV02.mwb i ici Database->Front Enginering i onda next next next... x)
+1.2) Iz terminala pokrenuti > sudo mysql -u -root -p 
+     Nakon sto se ulogujes, prekopiraj MySqlCreateDB.sql i pokreni. Nakon toga isto uradi za Filler.sql fajl da bi se baza napunila. 
+2) Prekopiraj MySqlCreateDB.sql i pokreni da napunis bazu sa test podacima.
+
