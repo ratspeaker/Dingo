@@ -7,19 +7,23 @@ last_name,
 department (ovo je ime restorana), 
 user_password (broj mesta),
 email,
-contact_no(broj telefona)
+contact_no(broj telefona),
+time,
+date
 */
 
 
 //TEST
-/*
-$myfile = fopen("logger.txt", "a");
+
+/*$myfile = fopen("logger.txt", "a");
 fwrite($myfile, "Ime: ".$_REQUEST['first_name']."\r\n");
 fwrite($myfile, "Prezime: ".$_REQUEST['last_name']."\r\n");
 fwrite($myfile, "Restoran: ".$_REQUEST['department']."\r\n");
 fwrite($myfile, "Broj Mesta: ".$_REQUEST['user_password']."\r\n");
 fwrite($myfile, "Email: ".$_REQUEST['email']."\r\n");
 fwrite($myfile, "Kontakt Tel.: ".$_REQUEST['contact_no']."\r\n");
+fwrite($myfile, "Datum: ".$_REQUEST['date']."\r\n");
+fwrite($myfile, "Vreme: ".$_REQUEST['time']."\r\n");
 fwrite($myfile, "________________"."\r\n");
 fclose($myfile);
 */
