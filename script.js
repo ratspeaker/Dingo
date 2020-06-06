@@ -48,24 +48,45 @@ $(document).ready(function() {
                     }
                 }
             },
+            date:{
+                validators: {
+                    notEmpty:{
+                        message: 'Molimo Vas izaberite datum'
+                    }
+                }
+            },
+            time:{
+                validators:{
+                    notEmpty:{
+                        message: 'Molimo vas izaberite vreme'
+                    }
+                }
+            },
             contact_no: {
                 validators: {
                   stringLength: {
-                        min: 0, 
-                        max: 12,
+                        min: 10, 
+                        max: 15,
+                        message:  'Molimo Vas unesite Vas kontakt telefon',
                     notEmpty: {
                         message: 'Molimo Vas unesite Vas kontakt telefon'
                      }
                 }
-            },
+            }
+        },
 			 department: {
                 validators: {
+                    stringLength:{
+                        min: 2,
+                        message: "Molimo Vas izaberite Vas restoran",
                     notEmpty: {
-                        message: 'Molimo Vas izaberite Vas resotran'
+                        message: 'Molimo Vas izaberite Vas restoran'
+                        }
                     }
-                }
+                    }
+                
             },
-                }
+                
             }
         })
         .on('success.form.bv', function(e) {
@@ -89,8 +110,13 @@ $(document).ready(function() {
            
         });
         let def = window.location.href;
-        let separator = '='
-        $('#department option:first-child').text(
-            def.substr(def.lastIndexOf(separator)+1,def.length-def.lastIndexOf(separator)+1)
-            );
+        if(def.includes("name=")){
+            let separator = '='
+            let rest_nameDash =  def.substr(def.lastIndexOf(separator)+1,def.length-def.lastIndexOf(separator)+1);
+            let nameComp = rest_nameDash.split('-');
+            let trueName = nameComp.join(' ');
+             $('#department option:first-child').text(trueName);
+        }else{
+            $('#department option:first-child').text("-");
+        }
 });
