@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `Dingo`.`korisnik` (
   `ime` VARCHAR(45) NOT NULL,
   `prezime` VARCHAR(45) NOT NULL,
   `broj_mobilnog` VARCHAR(15) NOT NULL,
-  `gmail` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_korisnika`))
 ENGINE = InnoDB;
 
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `Dingo`.`rezervacija` (
   `id_korisnika` INT NOT NULL,
   `sat` INT NOT NULL,
   `datum` DATE NULL,
-  `broj_mesta` INT NULL,
+  `broj_stolova` INT NULL,
   PRIMARY KEY (`id_rezervacije`, `id_restorana`, `id_korisnika`),
   INDEX `id_korisnika_idx` (`id_korisnika` ASC),
   CONSTRAINT `id_restorana`
