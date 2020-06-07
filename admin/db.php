@@ -2,7 +2,7 @@
 const BD_HOST = 'localhost';
 const DB_NAME = 'Dingo';
 const DB_USERNAME = 'root';
-const DB_PASSWORD = 'ilovekiki12';
+const DB_PASSWORD = 'password';
 
 function connect($dbHost, $dbName, $dbUsername, $dbPassword){
    $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
