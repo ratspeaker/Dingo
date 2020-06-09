@@ -4,7 +4,9 @@ if [ $# != 2  ] ; then
 fi
 
 find . -type f -name "*.php" -print0 | xargs -0 sed -i -E 's/[\t ]*\$username[\t ]*=[\t ]*"[a-zA-Z0-9_!#$%^&\*]*"[ \t\n]*;/$username="'$1'";/g'
-find . -type f -name "*.php" -print0 | xargs -0 sed -i -E 's/[\t ]*\$password[\t ]*=[\t ]*"[a-zA-Z0-9_!#$%^&\*]*"[ \t\n]*;/$password="'$2'";/g';
+find . -type f -name "*.php" -print0 | xargs -0 sed -i -E 's/[\t ]*\$password[\t ]*=[\t ]*"[a-zA-Z0-9_!#$%^&\*]*"[ \t\n]*;/$password="'$2'";/g'
+find "./admin" -type f -name "*.php" -print0 | xargs -0 sed -i -E 's/[\t ]*const[\t ]*DB_USERNAME[\t ]*=[\t ]*"[a-zA-Z0-9_!#$%^&\*]*"[ \t\n]*;/const DB_USERNAME ="'$1'";/g'
+find "./admin" -type f -name "*.php" -print0 | xargs -0 sed -i -E 's/[\t ]*const[\t ]*DB_PASSWORD[\t ]*=[\t ]*"[a-zA-Z0-9_!#$%^&\*]*"[ \t\n]*;/const DB_PASSWORD ="'$2'";/g'
 
 echo "\nUspesno izvrseno!\n"
 

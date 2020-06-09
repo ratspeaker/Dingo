@@ -14,8 +14,8 @@ date
 */
 
 $servername="localhost";
-$username="USER";
-$password="PASSWORD";
+$username="default";
+$password="default";
 $dbname="Dingo";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
