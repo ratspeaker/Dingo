@@ -23,6 +23,11 @@ if($conn->connect_error){
 	die("connection failed ". $conn->connect_error);
 }
 
+if(!$conn->set_charset("utf8")){
+	printf("Error loading character set utf8: %s\n", $conn->error);
+	exit();
+}
+
 $ime = $_POST['first_name'];
 $prezime = $_POST['last_name'];
 $restoran = $_POST['department'];
@@ -63,19 +68,20 @@ if($broj_zauzetih_stolova <= $ukupan_broj_stolova && ($ukupan_broj_stolova - $br
 	
 	if ($conn->query($sql3) === TRUE){
             $result = $conn->query("SELECT id_korisnika FROM korisnik WHERE ime = '".$ime."' and prezime = '".$prezime."' and broj_mobilnog = '".$broj_mobilnog."' and email = '".$email."'") or die($conn->error);
-                $id_korisnika = $result->fetch_assoc()["id_korisnika"];
-                echo "ID KORISNIKA: ".$id_korisnika." je id korisnika\n";
-                $sql4 = "INSERT INTO rezervacija(id_restorana, id_korisnika, sat, datum, broj_stolova) VALUES (".$id.", ".$id_korisnika.", ".$sat.", '".$datum."', ".$potreban_broj_stolova.")";
-		if ($conn->query($sql4) === TRUE){
-			echo "Uspesno rezervisano!";
-		}else{
-			echo "Error: " . $sql4 . "<br>" . $conn->error;
-		}
-	}else{
+            $id_korisnika = $result->fetch_assoc()["id_korisnika"];
+            echo "ID KORISNIKA: ".$id_korisnika." je id korisnika\n";
+           
+            $sql4 = "INSERT INTO rezervacija(id_restorana, id_korisnika, sat, datum, broj_stolova) VALUES (".$id.", ".$id_korisnika.", ".$sat.", '".$datum."', ".$potreban_broj_stolova.")";
+			if ($conn->query($sql4) === TRUE){
+				echo "Uspesno rezervisano!";
+			} else{
+				echo "Error: " . $sql4 . "<br>" . $conn->error;
+			}
+	} else{
 		echo "Error: " . $sql3 . "<br>" . $conn->error;
 	}
-}else{
-		echo "Error: " . $slobodna_mesta . "<br>" . $conn->error;
+} else{
+	echo "Error: " . $conn->error;
 }
 
 $conn->close();
