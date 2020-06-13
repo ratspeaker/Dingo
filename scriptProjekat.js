@@ -1,4 +1,4 @@
- $(document).ready(function() {
+  $(document).ready(function() {
 
 
      $('#framework').multiselect({
@@ -7,10 +7,12 @@
          enableCaseInsensitiveFiltering: true,
          buttonWidth: '400px',
      });
+
      $('#framework').on("change", function() {
          document.getElementById("nothing_found").hidden = true;
          document.getElementById("not_selected").hidden = true;
      });
+
      $('#framework_form').on('submit', function(e) {
          var sendingData = $("#framework").val();
 
@@ -43,9 +45,9 @@
                          var row = document.createElement("tr");
 
                          var cell2 = document.createElement("td");
-                         
+
                          var UrlParameter = received[r].split(' ').join('-');
-                         
+
                          cell2.innerHTML = '<a href="./index.html?name=' + UrlParameter + '" class="nav-link" target="blank"><ion-icon name="book" class="margin-right" size="large"></ion-icon> Rezerviši odmah ' + received[r] + '</a>';
 
                          row.appendChild(cell2);
@@ -69,6 +71,32 @@
              });
          }
          e.preventDefault();
+     });
+
+     $('#contact-form').on("submit", function(e) {
+         $.ajax({
+             dataType: 'json',
+             crossDomain: true,
+             data: {
+                 name: document.getElementById("name").value,
+                 email: document.getElementById("email").value,
+                 subject: document.getElementById("subject").value,
+                 message: document.getElementById("message").value
+             },
+             type: 'GET',
+             url: '1.php'
+         }).done(function(data) {
+
+             console.log(data);
+
+         }).fail(function() {
+
+             console.log("failed");
+
+         });
+
+         e.preventDefault();
+
      });
 
  });
