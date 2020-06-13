@@ -95,6 +95,13 @@ CREATE TABLE IF NOT EXISTS `Dingo`.`restoran_vrsta_hrane` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+CREATE TABLE IF NOT EXISTS `Dingo`.`administrator`(
+  `korisnicko_ime` VARCHAR(20) NOT NULL,
+  `lozinka` VARCHAR(60) NOT NULL,
+  PRIMARY KEY (`korisnicko_ime`, `lozinka`)
+)
+ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
