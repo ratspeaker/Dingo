@@ -4,6 +4,7 @@
 <head>
     <title>Dingo</title>
     <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -19,8 +20,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
 
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./slike/Dingo-apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./slike/Dingo-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./slike/Dingo-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+
     <style>
-        body,
         h1,
         h2,
         h3,
@@ -51,61 +64,72 @@
 
 <body>
     <nav class="navbar fixed-top navbar-dark bg-dark large">
-        <a href="#" class="nav-link"><img src="./slike/dingog.jpg" height="50" width="50"> DinGo
+        <a href="#" class="nav-link"><img src="./slike/DingoSlikaLogo.png" height="70px" width="70px"> DinGo
         </a>
         <a href="#restaurants" class="nav-link">
-            <ion-icon name="restaurant" class="margin-right" size="large"></ion-icon> Restorani</a>
+            <ion-icon name="restaurant" class="margin-right" size="large"></ion-icon>
+            Restorani
+        </a>
         <a href="#about" class="nav-link">
-            <ion-icon name="glasses" class="margin-right" size="large"></ion-icon> O nama</a>
-        <a href="#contact" class="nav-link">
-            <ion-icon name="call" class="margin-right" size="large"></ion-icon> Kontakt </a>
+            <ion-icon name="glasses" class="margin-right" size="large"></ion-icon>
+            O nama
+        </a>
+        <!--   <a href="#contact" class="nav-link">
+            <ion-icon name="call" class="margin-right" size="large"></ion-icon> Kontakt </a> -->
         <a href="./index.html" class="nav-link">
-            <ion-icon name="book" class="margin-right" size="large"></ion-icon> Rezerviši odmah</a>
+            <ion-icon name="book" class="margin-right" size="large"></ion-icon>
+            Rezerviši odmah
+        </a>
     </nav>
     <br>
     <header>
         <main role="main" class="container">
-            <div class="jumbotron">
-                <h1>Dobrodošli u Dingo</h1>
+            <div class="jumbotron" style="margin-top: 100px;">
+                <h1>Dobrodošli u Dingo</h1><br>
                 <h5 class="">Dragi ljubitelji hrane, molimo Vas izaberite hranu po Vašem raspoloženju. Na listi ispod možete videti vrstu hrane koju restorani nude. Izborom vrste hrane mi ćemo Vam ponuditi restorane koji nju nude. Ako ste već izabrali restoran onda
                     kliknite na dugme "Rezerviši odmah" (u gornjem desnom uglu). Ako želite da informišete o restoranima, kliknite na "Restorani" koja se nalazi u navigaciji.
                 </h5>
-
+                <br>
                 <div class="container" style="width:600px; height: 300px; align-self: center;">
                     <br /><br />
                     <form id="framework_form" name="framework_form">
                         <div class="form-group" id="ispisi_hranu">
-                            <select id="framework" name="framework" multiple="multiple" class="form-control">
+
+                            <center>
+                                <select id="framework" name="framework" multiple="multiple" class="form-control">
                                 <option value="sve">Prikaži sve u ponudi</option>
-                                <option value="Arapska">Arapska kuhinja</option> 
-                                <option value="Bez glutena">Bez glutena</option> 
-                                <option value="Francuska">Francuska kuhinja</option>  
-                                <option value="Halal">Halal</option> 
-                                <option value="Italijanska">Italijanska kuhinja</option> 
-                                <option value="Japanska">Japanska kuhinja</option>
-                                <option value="Libanska">Libanska kuhinja</option>
-                                <option value="Mediteranska">Mediteranska kuhinja</option>
-                                <option value="Meksička">Meksička kuhinja</option>
-                                <option value="Španska">Španska kuhinja</option>
-                                <option value="Srpska">Srpska kuhinja</option>
-                                <option value="Veganska">Veganska hrana</option>
-                                <option value="Vegetarijanska">Vegetarijanska hrana</option>
-                                <option value="Vijetnamska">Vijetnamska</option>
+                                <option value="arapska">Arapska kuhinja</option> 
+                                <option value="bez glutena">Bez glutena</option> 
+                                <option value="francuska">Francuska kuhinja</option>  
+                                <option value="halal">Halal</option> 
+                                <option value="italijanska">Italijanska kuhinja</option> 
+                                <option value="japanska">Japanska kuhinja</option>
+                                <option value="libanska">Libanska kuhinja</option>
+                                <option value="mediteranska">Mediteranska kuhinja</option>
+                                <option value="meksička">Meksička kuhinja</option>
+                                <option value="španska">Španska kuhinja</option>
+                                <option value="srpska">Srpska kuhinja</option>
+                                <option value="veganska">Veganska hrana</option>
+                                <option value="vegetarijanska">Vegetarijanska hrana</option>
+                                <option value="vijetnamska">Vijetnamska</option>
                             </select>
 
-                            <h5 id="not_selected" style="color:brown"></h5>
+                                <h5 id="not_selected" style="color:brown"></h5>
+
+                            </center>
                         </div>
                         <br>
-                        <input type="submit" class="btn btn-info" id="select_submit" name="select_submit" value="Potraži" />
+
+                        <center>
+                            <input type="submit" class="btn btn-info" id="select_submit" name="select_submit" value="Potraži" />
+
+                        </center>
                     </form>
                 </div>
                 <div id="prikazi_dobijene_podatke" class="container">
-                    <!-- pomocno dugme za slanje url podataka sa jedne na drugu stranicu
-                    <a href="./index.html?name=neko-ime-restorana">
-                        <input class="btn btn-info" value="Proba za url"></a>-->
                     <h5 id="nothing_found" style="color:crimson" hidden=true></h5>
                 </div>
-
+            </div>
         </main>
 
     </header>
@@ -603,9 +627,20 @@
     <div class="container" id="about">
 
         <div class="jumbotron">
-            <h1>Mi smo Dingo</h1>
-            <h5> Ako želite da saznate nešto o nama kliknite na dugme ispod. Biće nam čast da se predstavimo.</h5><br><br>
-            <a class="btn btn-info" onclick="document.getElementById( 'contact-form').submit();">Naš sajt</a>
+            <center>
+                <h1>Mi smo Dingo</h1>
+            </center>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="./slike/DingoSlikaLogo.png" height="500px" width="250px">
+                </div>
+                <div class="col-md-6">
+                    <h5> Ako želite da saznate nešto o nama kliknite na dugme ispod. Biće nam čast da se predstavimo.</h5><br><br>
+                    <a href="about_us.html"><button class="btn btn-info">Naš sajt</button></a>
+
+                </div>
+            </div>
         </div>
     </div>
     <div class="container" id="contact">
@@ -618,21 +653,21 @@
             <div class="row">
 
                 <div class="col-md-9 mb-md-0 mb-5">
-                    <form id="contact-form" name="contact-form" action="about_us.html" method="POST">
+                    <form id="contact-form" name="contact-form">
 
                         <div class="row">
 
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
                                     <input type="text" id="name" name="name" class="form-control">
-                                    <label for="name" class=" ">Vaše ime i prezime</label>
+                                    <label for="name">Vaše ime i prezime </label>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
                                     <input type="text" id="email" name="email" class="form-control">
-                                    <label for="email" class=" ">Vaš email</label>
+                                    <label for="email">Vaš email</label>
                                 </div>
                             </div>
 
@@ -642,7 +677,7 @@
                             <div class="col-md-12">
                                 <div class="md-form mb-0">
                                     <input type="text" id="subject" name="subject" class="form-control">
-                                    <label for="subject" class=" ">O čemu se radi</label>
+                                    <label for="subject">O čemu se radi</label>
                                 </div>
                             </div>
                         </div>
@@ -659,12 +694,13 @@
                             </div>
                         </div>
 
+                        <div class="text-center text-md-left">
+                            <input type="submit" id="za_slanje" value="posalji">
+                        </div>
+
                     </form>
 
-                    <div class="text-center text-md-left">
-                        <a class="btn btn-info" onclick="document.getElementById( 'contact-form').submit();">Pošalji</a>
-                    </div>
-                    <div class="status"></div>
+
                 </div>
 
                 <div class="col-md-3 text-center">
