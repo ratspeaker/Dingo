@@ -10,6 +10,8 @@ function connect($dbHost, $dbName, $dbUsername, $dbPassword){
        die("Cannot connect to database\n" . $db->connect_error . "\n");
    }
 
+   $db->set_charset("utf8");
+
    return $db;
 }
 
@@ -105,6 +107,23 @@ function deleteRecord(mysqli $db, $id, $src){
 	}
 }
 
+function checkPassword(mysqli $db, $name, $password) {
+	$sql =  "SELECT * FROM `administrator` where `korisnicko_ime`='".$name."'";
+	
+	$result=false;
 
+	$sql_result = $db->query($sql);
+
+	if($sql_result->num_rows > 0){
+
+		$row = $sql_result->fetch_assoc();
+
+		$validPassword=password_verify($password, $row['lozinka']);
+		
+		if($validPassword)
+			$result=true;
+	}
+	return $result;
+}
 
 
