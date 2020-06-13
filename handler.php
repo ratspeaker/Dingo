@@ -13,10 +13,20 @@ time,
 date
 */
 
+
 $servername="localhost";
 $username="default";
 $password="default";
 $dbname="Dingo";
+$ime = $_POST['first_name'];
+$prezime = $_POST['last_name'];
+$restoran = $_POST['department'];
+$broj_mesta = $_POST['user_password'];
+$email = $_POST['email'];
+$broj_mobilnog = $_POST['contact_no'];
+$sat = date('H', (strtotime($_POST['time'])));
+$datum = $_POST['date'];
+
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if($conn->connect_error){
@@ -28,14 +38,7 @@ if(!$conn->set_charset("utf8")){
 	exit();
 }
 
-$ime = $_POST['first_name'];
-$prezime = $_POST['last_name'];
-$restoran = $_POST['department'];
-$broj_mesta = $_POST['user_password'];
-$email = $_POST['email'];
-$broj_mobilnog = $_POST['contact_no'];
-$sat = date('H', (strtotime($_POST['time'])));
-$datum = $_POST['date'];
+
 
 $sql1 = "SELECT id_restorana FROM restoran WHERE naziv_restorana = '".$restoran."'";
 $id_restorana = $conn->query($sql1);
@@ -85,6 +88,62 @@ if($broj_zauzetih_stolova <= $ukupan_broj_stolova && ($ukupan_broj_stolova - $br
 }
 
 $conn->close();
+
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+
+require 'vendor/autoload.php';
+
+
+$mail = new PHPMailer(true);
+
+try {
+    //Server settings
+    //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+    $mail->isSMTP();                                            // Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+    $mail->Username   = 'dingoteam370@gmail.com';                     // SMTP username
+    $mail->Password   = 'matf_pzv_dingo2020';                               // SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+    $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+    
+    $mail->setFrom('dingoteam370@gmail.com', 'DinGO');
+    $mail->addAddress($_POST['email']);     // Add a recipient
+    //$mail->addAddress('ellen@example.com');               // Name is optional
+    //$mail->addReplyTo('info@example.com', 'Information');
+    //$mail->addCC('cc@example.com');
+    //$mail->addBCC('bcc@example.com');
+
+   
+    //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+    //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+    
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = 'DinGO Rezervacija';
+    $mail->Body    = '	<h1>Vasa DinGO rezervacija</h1>
+						<body>
+								Postovani/na , <br>
+								Vasa rezervacija je uspesno prosla ! <br>
+								Hvala na poverenju,<br>
+								Vas DinGO Tim
+								
+						</body>';
+    $mail->AltBody = 'Postovani/na ,
+								Vasa rezervacija je uspesno prosla !
+								Hvala na poverenju,
+								Vas DinGO Tim';
+
+    $mail->send();
+   // echo 'Message has been sent';
+} catch (Exception $e) {
+   // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
 
 //Povratak na stranicu za rezervaciju (ovaj deo ne dirati)
 header("Refresh:0; url=index.html");
