@@ -115,7 +115,7 @@ $(document).ready(function() {
             let rest_nameDash =  def.substr(def.lastIndexOf(separator)+1,def.length-def.lastIndexOf(separator)+1);
             let nameComp = rest_nameDash.split('-');
             let trueName = nameComp.join(' ');
-             $('#department option:first-child').text(trueName);
+             $('#department option:first-child').text(decodeURI(trueName));
         }else{
             $('#department option:first-child').text("-");
         }
