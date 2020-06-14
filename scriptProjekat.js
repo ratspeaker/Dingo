@@ -73,30 +73,4 @@
          e.preventDefault();
      });
 
-     $('#contact-form').on("submit", function(e) {
-         $.ajax({
-             dataType: 'json',
-             crossDomain: true,
-             data: {
-                 name: document.getElementById("name").value,
-                 email: document.getElementById("email").value,
-                 subject: document.getElementById("subject").value,
-                 message: document.getElementById("message").value
-             },
-             type: 'GET',
-             url: '1.php'
-         }).done(function(data) {
-
-             console.log(data);
-
-         }).fail(function() {
-
-             console.log("failed");
-
-         });
-
-         e.preventDefault();
-
-     });
-
  });
