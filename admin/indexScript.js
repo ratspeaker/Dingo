@@ -12,13 +12,12 @@ $(document).ready(function() {
             type: 'GET',
             url: 'check_password.php'
         }).done(function(data) {
-            if (data == true) {
-                document.getElementById("form_div").hidden = true;
-                document.getElementById("buttons_div").hidden = false;
-            } else
-                alert("Pogrešna šifra ili korisničko ime. Molimo Vas unesite ispravne podatke!");
+            
+            document.getElementById("form_div").hidden = true;
+            document.getElementById("buttons_div").hidden = false;
+            
         }).fail(function() {
-            alert("Server nije trenutno dostupan pokušajte kasnije");
+             alert("Pogrešna šifra ili korisničko ime. Molimo Vas unesite ispravne podatke!");
         });
         e.preventDefault();
 
