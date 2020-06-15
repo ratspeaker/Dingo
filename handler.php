@@ -30,11 +30,14 @@ $datum = $_POST['date'];
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if($conn->connect_error){
+	header("Refresh:0; url=error_page.html");
 	die("connection failed ". $conn->connect_error);
+	
 }
 
 if(!$conn->set_charset("utf8")){
 	printf("Error loading character set utf8: %s\n", $conn->error);
+	header("Refresh:0; url=error_page.html");
 	exit();
 }
 
@@ -46,7 +49,9 @@ $id_restorana = $conn->query($sql1);
 
 $id = $id_restorana->fetch_assoc()['id_restorana'];
 if($id_restorana === FALSE){
-	echo "Error: " . $id . "<br>" . $conn->error;
+	//echo "Error: " . $id . "<br>" . $conn->error;
+	header("Refresh:0; url=error_page.html");
+	
 }
 
 
@@ -78,13 +83,16 @@ if($broj_zauzetih_stolova <= $ukupan_broj_stolova && ($ukupan_broj_stolova - $br
 			if ($conn->query($sql4) === TRUE){
 				echo "Uspesno rezervisano!";
 			} else{
-				echo "Error: " . $sql4 . "<br>" . $conn->error;
+				//echo "Error: " . $sql4 . "<br>" . $conn->error;
+				header("Refresh:0; url=error_page.html");
 			}
 	} else{
-		echo "Error: " . $sql3 . "<br>" . $conn->error;
+		//echo "Error: " . $sql3 . "<br>" . $conn->error;
+		header("Refresh:0; url=error_page.html");
 	}
 } else{
-	echo "Error: " . $conn->error;
+	//echo "Error: " . $conn->error;
+	header("Refresh:0; url=error_page.html");
 }
 
 $conn->close();
