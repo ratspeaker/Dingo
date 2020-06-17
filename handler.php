@@ -57,7 +57,7 @@ $sql2_051 = "SELECT CURRENT_DATE";
 $sql2_052 = "SELECT HOUR(CURRENT_TIME) AS Time";
 $curr_date = $conn->query($sql2_051)->fetch_assoc()["CURRENT_DATE"]; 
 $curr_time = $conn->query($sql2_052)->fetch_assoc()["Time"];
-if($datum < $curr_date || ($datum = $curr_date && $sat < $curr_time)){
+if($datum < $curr_date || ($datum == $curr_date && $sat < $curr_time)){
      header("Refresh:0; url=error_page.html");
      die($conn->error);
 }
