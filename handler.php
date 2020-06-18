@@ -50,22 +50,13 @@ if($id_restorana->num_rows==0){
     die($conn->error);
 
 }
-
 $id = $id_restorana->fetch_assoc()['id_restorana'];
 if($id_restorana === FALSE){
 	//echo "Error: " . $id . "<br>" . $conn->error;
 	header("Refresh:0; url=error_page.html");
-	
-}
-
-$sql2_051 = "SELECT CURRENT_DATE";
-$sql2_052 = "SELECT HOUR(CURRENT_TIME) AS Time";
-$curr_date = $conn->query($sql2_051)->fetch_assoc()["CURRENT_DATE"]; 
-$curr_time = $conn->query($sql2_052)->fetch_assoc()["Time"];
-if($datum < $curr_date || ($datum == $curr_date && $sat < $curr_time)){
-     header("Refresh:0; url=error_page.html");
      die($conn->error);
 }
+
 
 $sql2 = "SELECT SUM(broj_stolova) AS 'Suma' FROM rezervacija WHERE sat = ".$sat." AND datum = '".$datum."' AND id_restorana = ".$id."";
 $result = $conn->query($sql2) or die($conn->error);
@@ -75,7 +66,14 @@ if ($result->fetch_assoc()["Suma"] == NULL) {
 } else {
      $broj_zauzetih_stolova = $result->fetch_assoc()["Suma"];
 }
-
+$sql2_051 = "SELECT CURRENT_DATE";
+$sql2_052 = "SELECT HOUR(CURRENT_TIME) AS Time";
+$curr_date = $conn->query($sql2_051)->fetch_assoc()["CURRENT_DATE"]; 
+$curr_time = $conn->query($sql2_052)->fetch_assoc()["Time"];
+if($datum < $curr_date || ($datum == $curr_date && $sat < $curr_time)){
+     header("Refresh:0; url=error_page.html");
+     die($conn->error);
+}
 
 $sql2_1 = "SELECT ukupan_broj_stolova FROM restoran WHERE id_restorana = ".$id."";
 $result = $conn->query($sql2_1) or die($conn->error);
@@ -83,7 +81,7 @@ $ukupan_broj_stolova = $result->fetch_assoc()["ukupan_broj_stolova"];
 
 $potreban_broj_stolova = ceil($broj_mesta/4);
 
-if($broj_zauzetih_stolova <= $ukupan_broj_stolova && ($ukupan_broj_stolova - $broj_zauzetih_stolova) >= $potreban_broj_stolova){
+if($broj_zauzetih_stolova < $ukupan_broj_stolova && ($ukupan_broj_stolova - $broj_zauzetih_stolova) >= $potreban_broj_stolova){
 	$sql3 = "INSERT INTO korisnik(ime, prezime, broj_mobilnog, email) values ('".$ime."', '".$prezime."', '".$broj_mobilnog."', '".$email."')";
 	
 	if ($conn->query($sql3) === TRUE){
@@ -96,15 +94,21 @@ if($broj_zauzetih_stolova <= $ukupan_broj_stolova && ($ukupan_broj_stolova - $br
 				echo "Uspesno rezervisano!";
 			} else{
 				//echo "Error: " . $sql4 . "<br>" . $conn->error;
-				header("Refresh:0; url=error_page.html");
+                    header("Refresh:0; url=error_page.html");
+                    die($conn->error);
+
 			}
 	} else{
 		//echo "Error: " . $sql3 . "<br>" . $conn->error;
-		header("Refresh:0; url=error_page.html");
+          header("Refresh:0; url=error_page.html");
+          die($conn->error);
+
 	}
 } else{
 	//echo "Error: " . $conn->error;
-	header("Refresh:0; url=error_page.html");
+     header("Refresh:0; url=error_page.html");
+     die($conn->error);
+
 }
 
 $conn->close();
