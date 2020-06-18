@@ -45,6 +45,11 @@ if(!$conn->set_charset("utf8")){
 $sql1 = "SELECT id_restorana FROM restoran WHERE naziv_restorana = '".$restoran."'";
 $id_restorana = $conn->query($sql1);
 
+if($id_restorana->num_rows==0){
+	header("Refresh:0; url=error_page.html");
+    die($conn->error);
+
+}
 
 $id = $id_restorana->fetch_assoc()['id_restorana'];
 if($id_restorana === FALSE){
