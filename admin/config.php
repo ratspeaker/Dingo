@@ -1,8 +1,8 @@
 <?php
 const DB_HOST = "localhost";
 const DB_NAME = "Dingo";
-const DB_USERNAME ="root";
-const DB_PASSWORD ="ilovekiki12";
+const DB_USERNAME ="default";
+const DB_PASSWORD ="default";
 
 /*
 insert into korisnik (ime, prezime, broj_mobilnog, email) values ('Test', 'Test', 1111, 'test@gmail.com');
