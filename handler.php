@@ -14,8 +14,8 @@ date
 
 
 $servername="localhost";
-$username="default";
-$password="default";
+$username="root";
+$password="ilovekiki12";
 $dbname="Dingo";
 $ime = $_POST['first_name'];
 $prezime = $_POST['last_name'];

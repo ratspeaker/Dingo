@@ -1,8 +1,8 @@
 <?php 
 const BD_HOST = "localhost";
 const DB_NAME = "Dingo";
-const DB_USERNAME ="default";
-const DB_PASSWORD ="default";
+const DB_USERNAME ="root";
+const DB_PASSWORD ="ilovekiki12";
 
 function connect($dbHost, $dbName, $dbUsername, $dbPassword){
    $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
@@ -127,3 +127,7 @@ function checkPassword(mysqli $db, $name, $password) {
 }
 
 
+function deleteOldReservations(mysqli $db){
+	$sql1 = "DELETE FROM `rezervacija` WHERE datum < DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
+	$db->query($sql1);
+}
