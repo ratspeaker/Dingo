@@ -30,6 +30,7 @@ $records = selectRezervacija($db);
         <h1> TABELA REZERVACIJA</h1>
         <hr>
       		<table>
+
               	<thead>
                     <tr>
                         <th>ID REZERVACIJE</th>
@@ -68,11 +69,18 @@ $records = selectRezervacija($db);
                 </tbody>
                 <div class="container">
                   <div class="row">
-                      <div class="col-6">
+                      <div class="col-4">
                         <a href="korisnik.php"><input class="btn btn-info" value="KORISNICI"></a>
+                      <hr>
                       </div>
-                      <div class="col-6">
-                        <a href="restoran.php"><input class="btn btn-info" value="RESTORANI"></a>
+                      <div class="col-4">
+                        <a href="restoran.php"><input class="btn btn-info" value="RESTORANI"></a> 
+                      <hr>
+                      </div>
+
+                      <div class="col-4">
+                        <a href="deleteOldReservations.php"><input class="btn btn-info" value="UKLONI ZASTARELE"></a>
+                      <hr>
                       </div>
 
                   </div>
