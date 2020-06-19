@@ -129,5 +129,7 @@ function checkPassword(mysqli $db, $name, $password) {
 
 function deleteOldReservations(mysqli $db){
 	$sql1 = "DELETE FROM `rezervacija` WHERE datum < DATE_SUB(CURDATE(), INTERVAL 1 DAY)";
+	$sql2 = "DELETE FROM `korisnik` WHERE id_korisnika not in (SELECT id_korisnika FROM rezervacija)";
 	$db->query($sql1);
+	$db->query($sql2);
 }
