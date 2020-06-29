@@ -20,9 +20,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
 
-
-
-
     <link rel="apple-touch-icon" sizes="180x180" href="./slike/Dingo-apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./slike/Dingo-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./slike/Dingo-16x16.png">
@@ -30,38 +27,9 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-
-
-
-    <style>
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: "Raleway", Arial, Helvetica, sans-serif
-        }
-        
-        ion-icon {
-            color: rgb(26, 201, 186)
-        }
-        
-        body {
-            position: relative;
-        }
-        
-        ul.nav-pills {
-            top: 600px;
-            position: fixed;
-        }
-        
-        div.col-8 div {
-            height: 500px;
-        }
-    </style>
-    <script src="scriptProjekat.js ">
-</script>
+    <link rel="stylesheet" href="./CSS/projekat.css">
+    <script src="./JS/scriptProjekat.js ">
+    </script>
 </head>
 
 <body>
@@ -95,37 +63,16 @@
                 <div class="container" style="width:600px; height: 300px; align-self: center;">
                     <br /><br />
                     <form id="framework_form" name="framework_form">
+
                         <div class="form-group" id="ispisi_hranu">
 
-                            <center>
-                                <select id="framework" name="framework" multiple="multiple" class="form-control">
-                                <option value="sve">Prikaži sve u ponudi</option>
-                                <option value="arapska">Arapska kuhinja</option> 
-                                <option value="bez glutena">Bez glutena</option> 
-                                <option value="francuska">Francuska kuhinja</option>  
-                                <option value="halal">Halal</option> 
-                                <option value="italijanska">Italijanska kuhinja</option> 
-                                <option value="japanska">Japanska kuhinja</option>
-                                <option value="libanska">Libanska kuhinja</option>
-                                <option value="mediteranska">Mediteranska kuhinja</option>
-                                <option value="meksička">Meksička kuhinja</option>
-                                <option value="španska">Španska kuhinja</option>
-                                <option value="srpska">Srpska kuhinja</option>
-                                <option value="veganska">Veganska hrana</option>
-                                <option value="vegetarijanska">Vegetarijanska hrana</option>
-                                <option value="vijetnamska">Vijetnamska</option>
-                            </select>
-
-                                <h5 id="not_selected" style="color:brown"></h5>
-
-                            </center>
+                         
+                            <h5 id="not_selected" style="color:brown"></h5>
                         </div>
                         <br>
 
-                        <center>
-                            <input type="submit" class="btn btn-info" id="select_submit" name="select_submit" value="Potraži" />
+                        <input type="submit" class="btn btn-info" id="select_submit" name="select_submit" value="Potraži" />
 
-                        </center>
                     </form>
                 </div>
                 <div id="prikazi_dobijene_podatke" class="container">
@@ -625,12 +572,10 @@
             </div>
         </div>
     </div>
- <div class="container" id="about">
+    <div class="container" id="about">
 
         <div class="jumbotron">
-            <center>
-                <h1>Mi smo Dingo</h1>
-            </center>
+            <h1>Mi smo Dingo</h1>
             <br>
             <div class="row">
                 <div class="col-md-4">
@@ -638,7 +583,7 @@
                 </div>
                 <div class="col-md-6">
                     <h5> Ako želite da saznate nešto o nama kliknite na dugme ispod. Biće nam čast da se predstavimo.</h5><br><br>
-                    <a href="about_us.html"><button class="btn btn-info">Naš sajt</button></a>
+                    <a href="./about_us.html"><button class="btn btn-info">Naš sajt</button></a>
 
                 </div>
             </div>
