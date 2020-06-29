@@ -1,30 +1,30 @@
 use Dingo;
 
-insert into restoran(naziv_restorana, ukupan_broj_stolova, grad, adresa) values
-('Zapata', 40, 'Beograd', 'Vojvode Bogdana 13'),
-('Marukoshi Restaurant and Bar', 35, 'Beograd','Kapetan Mišina 37'),
-('Cantina De Frida', 20, 'Beograd', 'Karađorđeva 2'),
-('Byblos Cuisine Lebanese', 30, 'Beograd', 'Hadži Milentijeva 70'),
-('Restoran Istok', 35, 'Beograd', 'Gospodar Jevremova 50'),
-('Le Molière', 20, 'Beograd', 'Zmaj Jovina 11'),
-('Smokvica', 30, 'Beograd', 'Gospodar Jovanova 45'),
-('alla Lanterna', 40, 'Novi Sad', 'Dunavska 27'),
-('Korpa Deli Market i Bistro', 30, 'Novi Sad', 'Veselina Masleše 2'),
-('Zuwar Belgrade Restaurant', 15, 'Beograd', 'Đure Jakšića 3'),
-('Salon 1905', 25, 'Beograd', 'Karađorđeva 48'),
-('Bizu Restoran', 20, 'Beograd', 'Bizu Restoran'),
-('Sakura', 30, 'Beograd', 'Karađorđeva 2-4'),
-('Steakhouse El Toro', 15, 'Beograd', 'Masarikova 5'),
-('Gušti Mora', 18, 'Beograd', 'Radnička 27'),
-('Langouste Restaurant', 16, 'Beograd', 'Kosančićev venac 29'),
-('Restoran Terasa', 28, 'Novi Sad', 'Petrovaradinska tvrđava'),
-('Little Bay', 25, 'Beograd', 'Dositejeva 9a'),
-('Franš', 40, 'Beograd', 'Bulevar oslobođenja 18a'),
-('Hanan', 15, 'Beograd', 'Svetogorska 2'),
-('Tri šešira', 30, 'Beograd', 'Skadarska 29'),
-('Tabor', 35, 'Beograd', 'Bulevar kralja Aleksandra 352'),
-('Zak', 40, 'Novi Sad', 'Šafarikova 6'),
-('Fidel Gastro', 25, 'Niš', 'Episkopska 11')
+insert into restoran(naziv_restorana, ukupan_broj_stolova, grad, adresa, slika, sajt, meni) values
+('Zapata', 40, 'Beograd', 'Vojvode Bogdana 13', './slike/zapata.png', 'http://www.zapatabeograd.com/', 'http://www.zapatabeograd.com/zapata/meni.php'),
+('Marukoshi Restaurant and Bar', 35, 'Beograd','Kapetan Mišina 37', './slike/murakoshi.png', 'https://marukoshi.rs/', 'https://marukoshi.rs/meni/'),
+('Cantina De Frida', 20, 'Beograd', 'Karađorđeva 2', './slike/cantinadefrida.png', 'http://www.cantinadefrida.com/rs/home', 'http://www.cantinadefrida.com/rs/home/jelovnik'),
+('Byblos Cuisine Lebanese', 30, 'Beograd', 'Hadži Milentijeva 70', './slike/byblos.png', 'http://www.byblos.rs/', ''),
+('Restoran Istok', 35, 'Beograd', 'Gospodar Jevremova 50', './slike/istok.png', 'http://www.istokrestoran.com/#about', 'http://www.istokrestoran.com/#meni'),
+('Le Molière', 20, 'Beograd', 'Zmaj Jovina 11', './slike/molijer.png', 'https://www.restoranlemoliere.com/', 'https://www.restoranlemoliere.com/wp-content/uploads/2019/12/le-moliere-jelovnik-srpski-engleski-vinska_sa-izmenom.pdf'),
+('Smokvica', 30, 'Beograd', 'Gospodar Jovanova 45', './slike/smokvica.png', 'http://smokvica.rs/', ''),
+('alla Lanterna', 40, 'Novi Sad', 'Dunavska 27', './slike/laterna.png', 'http://lanterna.rs/', ''),
+('Korpa Deli Market i Bistro', 30, 'Novi Sad', 'Veselina Masleše 2', './slike/korpa.png', 'http://www.korpa-deli.com/', 'http://www.korpa-deli.com/download/menu_cenovnik_14052020.pdf'),
+('Zuwar Belgrade Restaurant', 15, 'Beograd', 'Đure Jakšića 3', './slike/zuwar.png', 'https://zuwar-restaurant.business.site/', ''),
+('Salon 1905', 25, 'Beograd', 'Karađorđeva 48', './slike/salon.png', 'https://www.salon1905.rs/', ''),
+('Bizu Restoran', 20, 'Beograd', 'Bizu Restoran', './slike/bizu.png', 'https://bizu.rs/', 'https://bizu.rs/moderna-kuhinja/'),
+('Sakura', 30, 'Beograd', 'Karađorđeva 2-4', './slike/sakura.png', 'http://www.sakurarestoran.rs/sr/pocetna', 'http://www.sakurarestoran.rs/uploads/jelovnik_srb_sakura.pdf'),
+('Steakhouse El Toro', 15, 'Beograd', 'Masarikova 5', './slike/steak.png', 'http://www.eltoro.rs', 'http://www.eltoro.rs/meniji/kategorija/specijaliteti'),
+('Gušti Mora', 18, 'Beograd', 'Radnička 27', './slike/gusti.png', 'http://www.gustimora.com', 'http://www.gustimora.com/menu/index.html'),
+('Langouste Restaurant', 16, 'Beograd', 'Kosančićev venac 29', './slike/langouste.png', 'http://www.langouste.rs/', 'http://www.langouste.rs/podaci/MENI_srpski_200312_192552.pdf'),
+('Restoran Terasa', 28, 'Novi Sad', 'Petrovaradinska tvrđava', './slike/terasa.png', 'http://www.terasa.rs/', ''),
+('Little Bay', 25, 'Beograd', 'Dositejeva 9a', './slike/litle.png', 'https://www.littlebay.rs/', 'https://www.littlebay.rs/nas_meni/#'),
+('Franš', 40, 'Beograd', 'Bulevar oslobođenja 18a', './slike/frans.png', 'https://frans.rs/', 'https://frans.rs/menu/jelovnik/'),
+('Hanan', 15, 'Beograd', 'Svetogorska 2', './slike/hanan.png', 'https://www.restoranhanan.rs/', 'https://www.restoranhanan.rs/sr/libanska-kuhinja-meni/'),
+('Tri šešira', 30, 'Beograd', 'Skadarska 29', './slike/trisesira.png', 'https://trisesira.rs/', 'https://trisesira.rs/jelovnik/'),
+('Tabor', 35, 'Beograd', 'Bulevar kralja Aleksandra 352', './slike/tabor.png', 'http://www.restorantabor.com/', 'http://www.restorantabor.com/srb/tabor-meni'),
+('Zak', 40, 'Novi Sad', 'Šafarikova 6', './slike/zak.png', 'https://restoranzak.com/home/', 'https://hotelpupin.rs/dining/zak-fine-dinning/zak-menu/'),
+('Fidel Gastro', 25, 'Niš', 'Episkopska 11', './slike/gastro.png', 'https://www.tripadvisor.com/Restaurant_Review-g295382-d14101351-Reviews-Fidel_Gastro-Nis_Central_Serbia.html', '')
 ;
 
 insert ignore into vrsta_hrane(vrsta_hrane) values
@@ -122,4 +122,3 @@ insert into restoran_vrsta_hrane(vrsta_hrane, id_restorana) values
 ('Mediteranska', 24),
 ('Srpska', 24)
 ;
-
