@@ -23,6 +23,9 @@ CREATE TABLE IF NOT EXISTS `Dingo`.`restoran` (
   `ukupan_broj_stolova` INT(100) NOT NULL DEFAULT 20,
   `grad` VARCHAR(45) NOT NULL,
   `adresa` VARCHAR(45) NOT NULL,
+	`slika` VARCHAR(30) NOT NULL,
+	`sajt` VARCHAR(200) NOT NULL,
+	`meni` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`id_restorana`))
 ENGINE = InnoDB;
 
