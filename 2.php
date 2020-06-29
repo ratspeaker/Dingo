@@ -1,8 +1,8 @@
 <?php
 
 $servername="localhost";
-$username="default";
-$password="default";
+$username="root";
+$password="dara";
 $dbname="Dingo";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -18,7 +18,7 @@ if(!$conn->set_charset("utf8")){
 }
 
 if(strpos($p, "'sve'") === false){
-	$sql = "SELECT DISTINCT r.naziv_restorana FROM restoran r JOIN restoran_vrsta_hrane v ON r.id_restorana = v.id_restorana WHERE v.vrsta_hrane in (".$p.")";
+	$sql = "SELECT  r.naziv_restorana, r.adresa FROM restoran r JOIN restoran_vrsta_hrane v ON r.id_restorana = v.id_restorana WHERE v.vrsta_hrane in (".$p.")";
 } else{
 	$sql = "SELECT naziv_restorana FROM restoran";
 }
@@ -28,7 +28,7 @@ $result = $conn->query($sql);
 
 if($result->num_rows > 0){
 	while ($row = $result->fetch_assoc()){
-		echo $row["naziv_restorana"] . "\n";
+		echo $row["naziv_restorana"]."\n";
     }
 } else{
 	echo "0 results";
