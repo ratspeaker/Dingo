@@ -4,7 +4,7 @@ require_once 'db.php';
 
 $db = connect(DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD);
 $records = selectRestoran($db);
-header("Content-Type: text/html;charset=utf-8"); 
+header("Content-Type: text/html;charset=utf-8");
 ?>
 <html>
 	<head>
@@ -50,31 +50,32 @@ header("Content-Type: text/html;charset=utf-8");
                           <td><?php echo $record['naziv_restorana'];?></td>
                           <td><?php echo $record['ukupan_broj_stolova'];?></td>
                           <td><?php echo $record['grad'];?></td>
-                          <td><?php echo $record['adresa'];?></td>
-                    			<td><a href="delete.php?id=<?php echo $record['id_restorana'];?>&location=<?php echo "restoran.php";?>">Delete</a></td>
+                          <td><?php echo $record['adresa'];?></td>\
+                          <td><a href="delete.php?id=<?php echo $record['id_restorana'];?>&location=<?php echo "restoran.php";?>">Delete</a></td>
+
                     		</tr>
                     		<?php
                     	endforeach;
-                    else : 
+                    else :
                     ?>
                     <tr>
               	        <td colspan = "5">Cannot find any records </td>
                     </tr>
 
-                    <?php endif ?> 
+                    <?php endif ?>
                 </tbody>
                 <div class="container">
                   <div class="row">
-                      <div class="col-6">
+                      <div class="col-4">
                         <a href="korisnik.php"><input class="btn btn-info" value="KORISNICI"></a>
                       </div>
-                      <div class="col-6">
+                      <div class="col-4">
+                        <a href="insertRestoran.php"><input class="btn btn-info" value="UPIS NOVOG RESTORANA"></a>
+                      </div>
+                      <div class="col-4">
                         <a href="rezervacija.php"><input class="btn btn-info" value="REZERVACIJE"></a>
                       </div>
-
                   </div>
                 </div>
     </body>
 </html>
-
-
