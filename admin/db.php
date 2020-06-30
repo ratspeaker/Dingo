@@ -1,4 +1,4 @@
-<?php 
+<?php
 const BD_HOST = "localhost";
 const DB_NAME = "Dingo";
 const DB_USERNAME ="default";
@@ -19,10 +19,10 @@ function selectRestoran(mysqli $db){
     $data = [];
     $sql = 'select * from restoran';
     $result = $db->query($sql);
-    
+
     if ($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
-            $data[] = $row;     
+            $data[] = $row;
         }
     }
     return $data;
@@ -32,10 +32,10 @@ function selectKorisnik(mysqli $db){
     $data = [];
     $sql = 'select * from korisnik';
     $result = $db->query($sql);
-    
+
     if ($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
-            $data[] = $row;     
+            $data[] = $row;
         }
     }
     return $data;
@@ -45,10 +45,10 @@ function selectRezervacija(mysqli $db){
     $data = [];
     $sql = 'select * from rezervacija';
     $result = $db->query($sql);
-    
+
     if ($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
-            $data[] = $row;     
+            $data[] = $row;
         }
     }
     return $data;
@@ -99,7 +99,7 @@ function deleteRecord(mysqli $db, $id, $src){
 		$db->query($sql2);
 		$result = $db->query($sql1);
 	}
-	else 
+	else
 		throw new Exception("Cannot deduce a table from which to delete!");
 
 	if (!$result){
@@ -109,7 +109,7 @@ function deleteRecord(mysqli $db, $id, $src){
 
 function checkPassword(mysqli $db, $name, $password) {
 	$sql =  "SELECT * FROM `administrator` where `korisnicko_ime`='".$name."'";
-	
+
 	$result=false;
 
 	$sql_result = $db->query($sql);
@@ -119,7 +119,7 @@ function checkPassword(mysqli $db, $name, $password) {
 		$row = $sql_result->fetch_assoc();
 
 		$validPassword=password_verify($password, $row['lozinka']);
-		
+
 		if($validPassword)
 			$result=true;
 	}
@@ -132,4 +132,32 @@ function deleteOldReservations(mysqli $db){
 	$sql2 = "DELETE FROM `korisnik` WHERE id_korisnika not in (SELECT id_korisnika FROM rezervacija)";
 	$db->query($sql1);
 	$db->query($sql2);
+}
+
+
+function insertRestoran(mysqli $db, $ime, $stolovi, $grad, $adresa, $slika, $sajt, $meni, $hrana){
+  $sql1 = "INSERT INTO `restoran`(`naziv_restorana`, `ukupan_broj_stolova`, `grad`, `adresa`, `slika`, `sajt`, `meni`) VALUES('".$ime."', ".$stolovi.", '".$grad."', '".$adresa."', '".$slika."', '".$sajt."', '".$meni."')";
+  $result = $db->query($sql1);
+  if (!$result){
+    throw new Exception("Cannot insert record");
+  }
+
+  $sql2 = "SELECT `naziv_restorana`, `id_restorana` FROM `restoran` WHERE `id_restorana` = (SELECT MAX(`id_restorana`) FROM `restoran`)";
+  $restoran = $db->query($sql2);
+
+  if(strcmp($restoran->fetch_assoc()['naziv_restorana'], $ime) !== 0){
+      throw new Exception("Failed to insert new restaurant");
+  }
+
+  $sql2_1="SELECT MAX(`id_restorana`) as `id_restorana` from `restoran`";
+  $res=$db->query($sql2_1);
+  $id=$res->fetch_assoc();
+
+  foreach ($hrana as $vrsta_hrane) {
+    $sql3 = "INSERT INTO  `restoran_vrsta_hrane` (`id_restorana`, `vrsta_hrane`) VALUES (".strval($id["id_restorana"]).", '".$vrsta_hrane."')";
+    $result = $db->query($sql3);
+    if (!$result){
+      throw new Exception("Cannot insert record");
+    }
+  }
 }
