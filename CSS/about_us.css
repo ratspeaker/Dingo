@@ -195,7 +195,7 @@
      font-size: 16px;
      position: relative;
      top: 5px;
-     background-image: url("./slike/food_background.jpg");
+     background-image: url("../slike/food_background.jpg");
      background-repeat: no-repeat;
      background-attachment: fixed;
      background-position: 50% -10%;
