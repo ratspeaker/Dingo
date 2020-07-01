@@ -37,6 +37,8 @@ header("Content-Type: text/html;charset=utf-8");
                          <th>Ukupan broj stolova</th>
                          <th>Grad</th>
                          <th>Adresa</th>
+                 		<th>Action</th>
+
                    		<th>Action</th>
                     </tr>
              	</thead>
@@ -50,7 +52,8 @@ header("Content-Type: text/html;charset=utf-8");
                           <td><?php echo $record['naziv_restorana'];?></td>
                           <td><?php echo $record['ukupan_broj_stolova'];?></td>
                           <td><?php echo $record['grad'];?></td>
-                          <td><?php echo $record['adresa'];?></td>\
+                          <td><?php echo $record['adresa'];?></td>
+                          <td><a href="edit.php?id=<?php echo $record['id_restorana'];?>">Update</a></td>
                           <td><a href="delete.php?id=<?php echo $record['id_restorana'];?>&location=<?php echo "restoran.php";?>">Delete</a></td>
 
                     		</tr>
