@@ -28,6 +28,19 @@ function selectRestoran(mysqli $db){
     return $data;
 }
 
+function selectRestoranbyId(mysqli $db, $id){
+    $data = [];
+    $sql = 'select * from restoran where id_restorana='.strval($id);
+    $result = $db->query($sql);
+
+    if ($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            return $row;
+        }
+    }
+	return 0;
+}
+
 function selectKorisnik(mysqli $db){
     $data = [];
     $sql = 'select * from korisnik';
@@ -160,4 +173,19 @@ function insertRestoran(mysqli $db, $ime, $stolovi, $grad, $adresa, $slika, $saj
       throw new Exception("Cannot insert record");
     }
   }
+}
+
+function updateRestoran(mysqli $db, $id, $ime, $stolovi, $grad, $adresa, $slika, $sajt, $meni){
+  $result = mysqli_query($db, "UPDATE restoran SET naziv_restorana='$ime', ukupan_broj_stolova=".strval($stolovi).",grad='".$grad."', adresa='".$adresa."', slika='".$slika."', sajt='".$sajt."', meni='".$meni."' WHERE id_restorana=".strval($id));
+}
+
+function  deleteFoodRecord(mysqli $db, $id, $food){
+	$sql1 = "DELETE FROM `restoran_vrsta_hrane` WHERE vrsta_hrane='".$food."' and id_restorana=".strval($id);
+	$db->query($sql1);
+}
+
+function addVrstaHrane(mysqli $db, $id, $hrana){
+	$sql = "INSERT INTO `restoran_vrsta_hrane` (`id_restorana`, `vrsta_hrane`) VALUES (".strval($id).",'".$hrana."')";
+	$db->query($sql);
+
 }
