@@ -1,45 +1,44 @@
 $(document).ready(function() {
-  let def = window.location.href;
-  if (def.includes("?name=")) {
-      let separator = '=';
-      let rest_nameDash = def.substr(def.lastIndexOf(separator) + 1, def.length - def.lastIndexOf(separator) + 1);
-      let nameComp = rest_nameDash.split('-');
-      let trueName = nameComp.join(' ');
-      //console.log(trueName);
-//         $('#department option:first-child').text(decodeURI(trueName));
-      var select = document.getElementById("department");
-      var option = document.createElement("option");
-      option.innerHTML = (decodeURI(trueName));
-      option.value = (decodeURI(trueName));
-      select.appendChild(option);
-  } else{
+    let def = window.location.href;
+    if (def.includes("?name=")) {
+        let separator = '=';
+        let rest_nameDash = def.substr(def.lastIndexOf(separator) + 1, def.length - def.lastIndexOf(separator) + 1);
+        let nameComp = rest_nameDash.split('-');
+        let trueName = nameComp.join(' ');
+        //console.log(trueName);
+        //$('#department option:first-child').text(decodeURI(trueName));
+        var select = document.getElementById("department");
+        var option = document.createElement("option");
+        option.innerHTML = (decodeURI(trueName));
+        option.value = (decodeURI(trueName));
+        select.appendChild(option);
+    } else {
       $.ajax({
-        dataType: 'text',
-        url: '../restaurants.php'
+          dataType: 'text',
+          url: 'restaurants.php'
       }).done(function(data) {
           var received = data.split('\n');
           if (received[0] != "0 results") {
-            var restorani = document.getElementById('department');
+            var restorani = document.getElementById("department");
             var option = document.createElement("option");
             option.innerHTML = "-";
             option.value = "-";
             restorani.appendChild(option);
-
-            var length = received.length;
-            for (var i = 0; i < length - 1; i++) {
+            var totalRows = received.length;
+            for (var r = 0; r < totalRows - 1; r++) {
               var option = document.createElement("option");
-              option.innerHTML = received[i];
-              option.value = received[i];
+              option.innerHTML = received[r];
+              option.value = received[r];
               restorani.appendChild(option);
             }
           } else {
-            alert("Nažalost nemamo išta da Vam ponudimo. Dođite malo kasnije.");
-            var error = document.getElementById("empty");
-            error.hidden = false;
-            error.innerText = "Da li želite nesto drugo u  ponudi?";
+              alert("Na žalost na raspolaganju nema takvih restorana. Da li želite nesto drugo u  ponudi?");
+              var error = document.getElementById("empty");
+              error.hidden = false;
+              error.innerText = "Da li želite nesto drugo u  ponudi?";
           }
-      }).fail(function() {
-          alert("Nije uspelo povezivanje sa bazom!");
+      }).fail(function(data) {
+          console.log("Greska");
       });
     }
 
@@ -153,14 +152,4 @@ $(document).ready(function() {
             }, 'json');
 
         });
-        let def = window.location.href;
-        if(def.includes("name=")){
-            let separator = '='
-            let rest_nameDash =  def.substr(def.lastIndexOf(separator)+1,def.length-def.lastIndexOf(separator)+1);
-            let nameComp = rest_nameDash.split('-');
-            let trueName = nameComp.join(' ');
-             $('#department option:first-child').text(decodeURI(trueName));
-        }else{
-            $('#department option:first-child').text("-");
-        }
 });
