@@ -1,8 +1,8 @@
 <?php
 const BD_HOST = "localhost";
 const DB_NAME = "Dingo";
-const DB_USERNAME ="default";
-const DB_PASSWORD ="default";
+const DB_USERNAME ="root";
+const DB_PASSWORD ="ratspeaker";
 
 function connect($dbHost, $dbName, $dbUsername, $dbPassword){
    $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
@@ -78,7 +78,7 @@ function selectVrstaHrane(mysqli $db){
         }
     }
     return $data;
-
+}
 
 function insertRecord(mysqli $db,array $record){
 	$sql = "INSERT INTO `korisnik` ";
