@@ -1,32 +1,47 @@
 $(document).ready(function() {
-    $.ajax({
-      dataType: 'text',
-      url: '../restaurants.php'
-    }).done(function(data) {
-        var received = data.split('\n');
-        if (received[0] != "0 results") {
-          var restorani = document.getElementById('department');
-          var option = document.createElement("option");
-          option.innerHTML = "-";
-          option.value = "-";
-          restorani.appendChild(option);
-
-          var length = received.length;
-          for (var i = 0; i < length - 1; i++) {
+  let def = window.location.href;
+  if (def.includes("?name=")) {
+      let separator = '=';
+      let rest_nameDash = def.substr(def.lastIndexOf(separator) + 1, def.length - def.lastIndexOf(separator) + 1);
+      let nameComp = rest_nameDash.split('-');
+      let trueName = nameComp.join(' ');
+      //console.log(trueName);
+//         $('#department option:first-child').text(decodeURI(trueName));
+      var select = document.getElementById("department");
+      var option = document.createElement("option");
+      option.innerHTML = (decodeURI(trueName));
+      option.value = (decodeURI(trueName));
+      select.appendChild(option);
+  } else{
+      $.ajax({
+        dataType: 'text',
+        url: '../restaurants.php'
+      }).done(function(data) {
+          var received = data.split('\n');
+          if (received[0] != "0 results") {
+            var restorani = document.getElementById('department');
             var option = document.createElement("option");
-            option.innerHTML = received[i];
-            option.value = received[i];
+            option.innerHTML = "-";
+            option.value = "-";
             restorani.appendChild(option);
+
+            var length = received.length;
+            for (var i = 0; i < length - 1; i++) {
+              var option = document.createElement("option");
+              option.innerHTML = received[i];
+              option.value = received[i];
+              restorani.appendChild(option);
+            }
+          } else {
+            alert("Nažalost nemamo išta da Vam ponudimo. Dođite malo kasnije.");
+            var error = document.getElementById("empty");
+            error.hidden = false;
+            error.innerText = "Da li želite nesto drugo u  ponudi?";
           }
-        } else {
-          alert("Nažalost nemamo išta da Vam ponudimo. Dođite malo kasnije.");
-          var error = document.getElementById("empty");
-          error.hidden = false;
-          error.innerText = "Da li želite nesto drugo u  ponudi?";
-        }
-    }).fail(function() {
-        alert("Nije uspelo povezivanje sa bazom!");
-    });
+      }).fail(function() {
+          alert("Nije uspelo povezivanje sa bazom!");
+      });
+    }
 
     $('#contact_form').bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
