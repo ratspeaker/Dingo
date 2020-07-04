@@ -41,6 +41,48 @@
 
       });
 
+      $.ajax({
+          dataType: 'text',
+          url: './getInfos.php'
+      }).done(function(data) {
+          //    console.log(data);
+          var received = data.split('\n');
+          if (received[0] != "0 results") {
+              var accordionDiv = document.getElementById("accordion");
+              var tbl = document.createElement("table");
+              var totalRows = received.length;
+              for (var r = 0; r < totalRows - 1; r++) {
+                  var row = document.createElement("tr");
+
+                  var cell1 = document.createElement("td");
+                  var cell2 = document.createElement("td");
+                  var cell3 = document.createElement("td");
+
+                  var elements = received[r].split('-');
+                  cell1.innerHTML = '<a href=' + elements[4] + ' class="nav-link" target="blank"> <img src="' + elements[3] + '" alt="' + elements[0] + '"  width="70" height="70"> </a>';
+                  cell2.innerHTML = '<h4>Adresa restorana:</h4> ' + ' Grad: ' + elements[1] + " Ulica: " + elements[2];
+                  cell3.innerHTML = '<a href=' + elements[5] + ' class="nav-link" target="blank"> Meni </a>';
+
+
+                  row.appendChild(cell1);
+
+                  row.appendChild(cell2);
+
+                  row.appendChild(cell3);
+
+                  tbl.appendChild(row);
+
+              }
+              accordionDiv.appendChild(tbl);
+          } else {
+              alert("Nažalost nemamo išta da Vam ponudimo. Dođite malo kasnije.");
+
+          }
+      }).fail(function() {
+          alert("Žao nam je, nismo mogli da se konektujemo sa serverom. Pokušajte malo kasnije.");
+
+      });
+
       function akoSeNeKlikne() {
           document.getElementById("nothing_found").hidden = true;
           document.getElementById("not_selected").hidden = true;
