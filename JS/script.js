@@ -1,4 +1,33 @@
 $(document).ready(function() {
+    $.ajax({
+      dataType: 'text',
+      url: '../restaurants.php'
+    }).done(function(data) {
+        var received = data.split('\n');
+        if (received[0] != "0 results") {
+          var restorani = document.getElementById('department');
+          var option = document.createElement("option");
+          option.innerHTML = "-";
+          option.value = "-";
+          restorani.appendChild(option);
+
+          var length = received.length;
+          for (var i = 0; i < length - 1; i++) {
+            var option = document.createElement("option");
+            option.innerHTML = received[i];
+            option.value = received[i];
+            restorani.appendChild(option);
+          }
+        } else {
+          alert("Nažalost nemamo išta da Vam ponudimo. Dođite malo kasnije.");
+          var error = document.getElementById("empty");
+          error.hidden = false;
+          error.innerText = "Da li želite nesto drugo u  ponudi?";
+        }
+    }).fail(function() {
+        alert("Nije uspelo povezivanje sa bazom!");
+    });
+
     $('#contact_form').bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
         feedbackIcons: {
@@ -27,7 +56,7 @@ $(document).ready(function() {
                     }
                 }
             },
-			 
+
 			user_password: {
                 validators: {
                      stringLength: {
@@ -65,7 +94,7 @@ $(document).ready(function() {
             contact_no: {
                 validators: {
                   stringLength: {
-                        min: 10, 
+                        min: 10,
                         max: 15,
                         message:  'Molimo Vas unesite Vas kontakt telefon',
                     notEmpty: {
@@ -84,9 +113,9 @@ $(document).ready(function() {
                         }
                     }
                     }
-                
+
             },
-                
+
             }
         })
         .on('success.form.bv', function(e) {
@@ -102,12 +131,12 @@ $(document).ready(function() {
             // Get the BootstrapValidator instance
             var bv = $form.data('bootstrapValidator');
 
-            
+
              // Use Ajax to submit form data
              $.post($form.attr('action'), $form.serialize(), function(result) {
              console.log(result);
             }, 'json');
-           
+
         });
         let def = window.location.href;
         if(def.includes("name=")){
