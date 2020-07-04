@@ -43,7 +43,7 @@
 
       $.ajax({
           dataType: 'text',
-          url: './getInfos.php'
+          url: '../getInfos.php'
       }).done(function(data) {
           //    console.log(data);
           var received = data.split('\n');
