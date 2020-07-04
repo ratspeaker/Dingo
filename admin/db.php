@@ -67,6 +67,17 @@ function selectRezervacija(mysqli $db){
     return $data;
 }
 
+function selectVrstaHrane(mysqli $db){
+    $data = [];
+    $sql = 'select * from vrsta_hrane';
+    $result = $db->query($sql);
+
+    if ($result->num_rows > 0){
+        while($row = $result->fetch_assoc()){
+            $data[] = $row;
+        }
+    }
+    return $data;
 
 
 function insertRecord(mysqli $db,array $record){
@@ -92,13 +103,13 @@ function insertRecord(mysqli $db,array $record){
 
 function deleteRecordFromRestoran(mysqli $db, $id){
 
-	
+
 	$sql1 = "DELETE FROM `rezervacija` WHERE id_restorana = ". $id ."";
     $sql2 = "DELETE FROM `korisnik` WHERE id_korisnika not in (SELECT id_korisnika FROM rezervacija)";
     $sql3 = "DELETE FROM `restoran_vrsta_hrane` WHERE id_restorana = ". $id . "";
 	$sql4 = "DELETE FROM `restoran` WHERE id_restorana = ".$id."";
 	$result =$db->query($sql1);
-    
+
 
 	if (!$result){
 		throw new Exception("Cannot delete record from table Restoran in excecuting query: " . $sql1 . "");
@@ -112,14 +123,14 @@ function deleteRecordFromRestoran(mysqli $db, $id){
 	}
 
     $result = $db->query($sql3);
-    
-    
+
+
 	if (!$result){
 		throw new Exception("Cannot delete record from table Restoran in excecuting query: " . $sql3 . "");
 	}
-    
+
     $result = $db->query($sql4);
-    
+
 	if (!$result){
 		throw new Exception("Cannot delete record from table Restoran in excecuting query: " . $sql4 . "");
 	}
@@ -132,13 +143,13 @@ function deleteRecordFromRezervacija(mysqli $db, $id){
     $sql1 = "DELETE FROM `rezervacija` WHERE id_rezervacije = ".$id."";
     $sql2 = "DELETE FROM `korisnik` WHERE id_korisnika not in (SELECT id_korisnika FROM rezervacija)";
     $result = $db->query($sql1);
-    
+
     if (!$result){
 		throw new Exception("Cannot delete record from table Rezervacija in excecuting query: " . $sql1 . "");
 	}
-    
-    $result = $db->query($sql2); 
-    
+
+    $result = $db->query($sql2);
+
     if (!$result){
 		throw new Exception("Cannot delete record from table Rezervacija in excecuting query: " . $sql2 . "");
 	}
@@ -147,7 +158,7 @@ function deleteRecordFromRezervacija(mysqli $db, $id){
 
 function deleteRecordFromKorisnik(mysqli $db, $id){
 
-    
+
     $sql1 = "DELETE FROM `korisnik` WHERE id_korisnika = ".$id."";
     $sql2 = "DELETE FROM `rezervacija` WHERE id_korisnika = ".$id."";
 
