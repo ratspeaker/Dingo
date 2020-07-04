@@ -54,7 +54,7 @@ header("Content-Type: text/html;charset=utf-8");
                           <td><?php echo $record['grad'];?></td>
                           <td><?php echo $record['adresa'];?></td>
                           <td><a href="edit.php?id=<?php echo $record['id_restorana'];?>">Update</a></td>
-                          <td><a href="delete.php?id=<?php echo $record['id_restorana'];?>&location=<?php echo "restoran.php";?>">Delete</a></td>
+                          <td><a href="deleteFromRestoran.php?id=<?php echo $record['id_restorana'];?>">Delete</a></td>
 
                     		</tr>
                     		<?php

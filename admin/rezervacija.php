@@ -55,7 +55,7 @@ $records = selectRezervacija($db);
                           <td><?php echo $record['sat'];?></td>
                           <td><?php echo $record['datum'];?></td>
                     			<td><?php echo $record['broj_stolova'];?></td>
-                    			<td><a href="delete.php?id=<?php echo $record['id_rezervacije'];?>&location=<?php echo "rezervacija.php";?>">Delete</a></td>
+                    			<td><a href="deleteFromRezervacija.php?id=<?php echo $record['id_rezervacije'];?>">Delete</a></td>
                     		</tr>
                     		<?php
                     	endforeach;

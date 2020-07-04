@@ -4,8 +4,8 @@ require_once 'db.php';
 
 $db = connect(DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD);
 
-$username="default";
-$password="default";
+$username="root";
+$password="ilovekiki12";
 
 $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 

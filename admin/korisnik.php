@@ -51,7 +51,7 @@ $records = selectKorisnik($db);
                           <td><?php echo $record['prezime'];?></td>
                           <td><?php echo $record['broj_mobilnog'];?></td>
                           <td><?php echo $record['email'];?></td>
-                    			<td><a href="delete.php?id=<?php echo $record['id_korisnika'];?>&location=<?php echo "korisnik.php";?>">Delete</a></td>
+                    			<td><a href="deleteFromKorisnik.php?id=<?php echo $record['id_korisnika'];?>">Delete</a></td>
                     		</tr>
                     		<?php
                     	endforeach;
